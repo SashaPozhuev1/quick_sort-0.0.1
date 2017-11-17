@@ -54,34 +54,32 @@ bool create(double * & mass, int resultsize) {
 }
 
 void quick_sort(double * mass, int size) {
-	int right_hold, left_hold, opora, schet = 0;
-
-	////////Выбираем опорный элемент справа:
-	mass[opora + 1];
-	////////Выбираем опорный элемент слева:
-	mass[left_hold];
-	////////Сначала: 
-	right_hold = size - 1;
-	left_hold = 0;
-
+	int j = right_border, next;
 	
-	opora = mass[1];
-	int i = 0, j = size - 1, next;
-	while (i < opora && opora < j) {
-		while (mass[opora] > mass[i]) {
-			i++;
-		}
-		while (mass[opora] < mass[j]) {
-			j++;
+	while (left_border < j) {
+		while (mass[left_border] < mass[j]) {
+			j--;
 		}
 		
-		if (mass[i] > mass[opora]) {
-			next = mass[opora - 1];
-			mass[opora - 1] = mass[opora];
-			mass[opora] = mass[i];
-			mass[i] = next;
+		if (mass[j] <= mass[left_border]) {
+			next = mass[left_border + 1];
+			mass[left_border + 1] = mass[left_border];
+			mass[left_border] = mass[j];
+			mass[j] = next;
+			left_border++;
 		}
 	}
+	/*
+	if (left_border - 1 > size - 1 - left_border) {
+		left_border = 0;
+		right_border = left_border;
+		quick_sort(mass, size, right_border, left_border);
+	}
+	else {
+		right_border = size - 1;
+		quick_sort(mass, size, right_border, left_border);
+	}
+	*/
 	
 
 
