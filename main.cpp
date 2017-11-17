@@ -65,10 +65,8 @@ void write( double * mass, int size ) {
 	}
 }
 
-void quick_sort( double * mass, int size, int right, int left ) {
-	
+void quick_sort( double * mass, int size, int right, int left ) {	
 	int i = left, j = right;
-	bool success = true;
 
 	while ( left < right ) {
 		while ( mass[ left ] < mass[ right ] && left < right ) {
