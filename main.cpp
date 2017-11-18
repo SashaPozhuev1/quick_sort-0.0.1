@@ -100,6 +100,7 @@ int main()
 		if ( create( mass, size ) ) {
 			quick_sort( mass, size, size - 1, 0 );
 			write( mass, size );
+			delete[] mass;
 		}
 		else {
 			error();
